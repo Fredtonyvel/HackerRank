@@ -35,6 +35,9 @@ int main()
 
 	while (cin >> query_name)
 	{
+		//Search through query to find name and its value
+		//If name readin exist, phone number is printed
+		//Otherwise, name doesn't exist
 		if (phone_number.find(query_name) != phone_number.end())
 		{
 			cout << query_name << "=" << phone_number.find(query_name)->second << endl;
