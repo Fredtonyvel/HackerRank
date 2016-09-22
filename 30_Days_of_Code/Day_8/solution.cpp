@@ -12,7 +12,7 @@ int main()
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
 
 	int n;
-	string name, query_name;
+	string name;
 	int phone;
 
 	cin >> n;	//readin integer for creating test phone_numbers cases
@@ -32,6 +32,8 @@ int main()
 	}
 
 	cout << endl;
+
+	string query_name;
 
 	while (cin >> query_name)
 	{
