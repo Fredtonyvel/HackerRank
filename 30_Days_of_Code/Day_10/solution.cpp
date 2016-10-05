@@ -26,7 +26,7 @@ using namespace std;
 
 int main()
 {
-    int num, num_remainder, i=0;
+    int num, num_remainder=0, count=0, max=0;
     cin >> num;
     cout << num << " = ";
 
@@ -44,6 +44,16 @@ int main()
         //cout << bin_str << endl;
 
         binary.push_front(bin_str);
+
+        //Checks for max number of consecutive 1's
+        if (num_remainder == 1)
+        {
+            count++;
+            if (count >= max)
+                max = count;
+        }
+        else
+            count = 0;
     }
 
     //while loop to ensure that decimal converted into binary
@@ -55,11 +65,13 @@ int main()
         binary.push_front("0");
     }
     
-    for (list<string>::iterator i = binary.begin(); i != binary.end(); i++)
+    for (list<string>::iterator it = binary.begin(); it != binary.end(); it++)
     {
-        cout << *i;
+        cout << *it;
     }
     cout << endl;
+
+    cout << "Max number of consecutive 1\'s is: " << max << endl;
 
     return 0;
 }
