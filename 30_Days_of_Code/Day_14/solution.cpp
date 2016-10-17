@@ -31,9 +31,23 @@ class Difference
 
   	void computeDifference()
   	{
-  		sort(elements.begin(), elements.end());
+      int min = 100, max = 1;  
+      for (int i = 0; i < elements.size(); i++)
+      {
+        if (elements.at(i) < min)
+        {
+          min = elements.at(i);
+        }
+        if (elements.at(i) > max)
+        {
+          max = elements.at(i);
+        }
+      }
+      maximumDifference = max - min;
 
-  		maximumDifference = abs(elements.front() - elements.back());
+      //sort(elements.begin(), elements.end());
+      //maximumDifference = abs(elements.front() - elements.back());
+      //maximumDifference = elements.back() - elements.front();
   	}
 
 }; // End of Difference class
