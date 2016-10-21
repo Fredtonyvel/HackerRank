@@ -23,25 +23,31 @@
 
 using namespace std;
 
-vector<int> array_left_rotation(vector<int> a, int n, int k) 
+vector<int> array_left_rotation(vector<int> a, int size, int k) 
 {
-    
+    int rotate = size - k;  //find difference to do right rotate
+    vector<int> v(size);
+    for (int i = 0; i < size; i++)
+    {
+        v[(i+rotate)%size] = a[i]; //store each element in a[] to v[i+rotate] but use % to keep them within array size
+    }
+    return v;
 }
 
 int main()
 {
-    int n;
+    int size;
     int k;
-    cin >> n >> k;
+    cin >> size >> k;
     
-    vector<int> a(n);
-    for(int a_i = 0;a_i < n;a_i++)
+    vector<int> a(size);
+    for(int a_i = 0;a_i < size;a_i++)
     {
         cin >> a[a_i];
     }
     
-    vector<int> output = array_left_rotation(a, n, k);
-    for(int i = 0; i < n;i++)
+    vector<int> output = array_left_rotation(a, size, k);
+    for(int i = 0; i < size;i++)
         cout << output[i] << " ";
     cout << endl;
     
